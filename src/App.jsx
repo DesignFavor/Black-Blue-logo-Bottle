@@ -6,11 +6,12 @@ import Lenis from "@studio-freight/lenis";
 import "./App.css";
 
 function Model({ url, targetPosition, targetRotation }) {
-  const { scene } = useGLTF(url);
+  const { scene } = useGLTF(url); 
   const ref = useRef();
 
   useFrame((state, delta) => {
     if (ref.current) {
+
       easing.damp3(ref.current.position, targetPosition, 0.25, delta);
       easing.dampE(ref.current.rotation, targetRotation, 0.25, delta);
     }
@@ -24,9 +25,9 @@ function Rig() {
     easing.damp3(
       state.camera.position,
       [
-        Math.sin(-state.pointer.x) * 3,
-        state.pointer.y * 2.5,
-        8 + Math.cos(state.pointer.x) * 5,
+        Math.sin(-state.pointer.x) * 3, 
+        state.pointer.y * 2.5, 
+        8 + Math.cos(state.pointer.x) * 5, 
       ],
       0.2,
       delta
@@ -43,6 +44,7 @@ export default function App() {
   const lenisRef = useRef();
 
   useEffect(() => {
+
     const lenis = new Lenis({
       smooth: true,
       direction: "vertical",
@@ -50,30 +52,17 @@ export default function App() {
     lenisRef.current = lenis;
 
     const onScroll = ({ scroll }) => {
-      const isMobile = window.innerWidth <= 768;
 
       if (scroll > 500 && scroll <= 1000) {
-        setModelState({
-          position: isMobile ? [0, -2.5, -3] : [0, -3, -5],
-          rotation: [0, 0, 0],
-        });
+        setModelState({ position: [0, -3, -5], rotation: [0, 0, 0] });
       } else if (scroll > 1000 && scroll <= 1500) {
-        setModelState({
-          position: [0, -2, 0],
-          rotation: [0, 0, 0],
-        });
+        setModelState({ position: [0, -2, 0], rotation: [0, 0, 0] }); 
       } else if (scroll > 1500 && scroll <= 2000) {
-        setModelState({
-          position: isMobile ? [2, -2, -1.5] : [3, -2, -2],
-          rotation: [-0.3, -0.8, -0.3],
-        });
+        setModelState({ position: [3, -2, -2], rotation: [-0.3, -0.8, -0.3] }); 
       } else if (scroll > 2000) {
-        setModelState({
-          position: isMobile ? [-2, -2, -1.5] : [-3, -2, -2],
-          rotation: [-0.3, 0.8, 0.3],
-        });
+        setModelState({ position: [-3, -2, -2], rotation: [-0.3, 0.8, 0.3] }); 
       } else {
-        setModelState({ position: [0, -2, 0], rotation: [0, 0, 0] });
+        setModelState({ position: [0, -2, 0], rotation: [0, 0, 0] }); 
       }
     };
 
@@ -93,16 +82,24 @@ export default function App() {
     <div className="container">
       <div className="animation">
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 25 }}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={1} />
+          <spotLight
+            position={[20, 20, 10]}
+            penumbra={1}
+            castShadow
+            angle={0.2}
+            shadow-mapSize={2048}
+          />
 
           <Float floatIntensity={2} speed={2} rotationIntensity={0.5}>
             <Model
-              url="https://splendorous-marigold-83f60a.netlify.app/model/black.glb"
+              url="./model/black.glb"
               targetPosition={modelState.position}
               targetRotation={modelState.rotation}
             />
           </Float>
 
+ 
           <ContactShadows
             position={[0, -3.5, 0]}
             scale={10}
@@ -111,7 +108,9 @@ export default function App() {
             opacity={0.75}
           />
 
-          <Environment files="https://splendorous-marigold-83f60a.netlify.app/ShowcaseEnvy.hdr" />
+
+          <Environment files="./ShowcaseEnvy.hdr" />
+
 
           <Rig />
         </Canvas>
