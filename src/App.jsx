@@ -93,7 +93,7 @@ export default function App() {
 
           <Float floatIntensity={2} speed={2} rotationIntensity={0.5}>
             <Model
-              url="https://black-blue-logo-bottle.vercel.app/model/black.glb"
+              url="/model/black.glb"
               targetPosition={modelState.position}
               targetRotation={modelState.rotation}
             />
@@ -109,7 +109,7 @@ export default function App() {
           />
 
 
-          <Environment files="https://black-blue-logo-bottle.vercel.app/ShowcaseEnvy.hdr" />
+          <Environment files="/ShowcaseEnvy.hdr" />
 
 
           <Rig />
