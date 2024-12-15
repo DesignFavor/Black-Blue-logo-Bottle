@@ -5,7 +5,7 @@
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "*"
+            "value": "https://pfannenstielhof-weingut.webflow.io/wein-einzel"
           },
           {
             "key": "Access-Control-Allow-Methods",
@@ -18,19 +18,29 @@
         ]
       },
       {
-        "source": "/(.*)",
+        "source": "/(.*)\\.js",
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          },
+            "value": "https://pfannenstielhof-weingut.webflow.io/wein-einzel"
+          }
+        ]
+      },
+      {
+        "source": "/(.*)\\.css",
+        "headers": [
           {
-            "key": "Access-Control-Allow-Methods",
-            "value": "GET, POST, OPTIONS"
-          },
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://pfannenstielhof-weingut.webflow.io/wein-einzel"
+          }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
           {
-            "key": "Access-Control-Allow-Headers",
-            "value": "Content-Type, Authorization"
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://pfannenstielhof-weingut.webflow.io/wein-einzel"
           }
         ]
       }

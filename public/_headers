@@ -1,4 +1,4 @@
-/*
-  Access-Control-Allow-Origin: *
+/* 
+  Access-Control-Allow-Origin: https://pfannenstielhof-weingut.webflow.io/wein-einzel
   Access-Control-Allow-Methods: GET, POST, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization
