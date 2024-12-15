@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-app.use(cors({ origin: "https://pfannenstielhof-weingut.webflow.io" }));
+app.use(cors({ origin: "https://pfannenstielhof-weingut.webflow.io/wein-einzel" }));
 
 app.use("/", (req, res) => {
   const url = `https://black-blue-logo-bottle.vercel.app${req.path}`;
