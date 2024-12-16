@@ -1,17 +1,12 @@
 {
-  "headers": [
+  "routes": [
     {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://pfannenstielhof-weingut.webflow.io"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"
-        }
-      ]
+      "src": "/assets/index-Bqfa1y6w.js",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://pfannenstielhof-weingut.webflow.io",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      }
     }
   ]
 }
