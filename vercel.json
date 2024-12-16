@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/:all*(js|css|json|glb|gltf)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
